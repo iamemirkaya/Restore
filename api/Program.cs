@@ -8,17 +8,20 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<StoreContext>(opt =>
 {
-
-    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-
+builder.Services.AddCors();
 var app = builder.Build();
 
-
+app.UseCors(opt =>
+{
+    opt.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("https://localhost:5173");
+});
 
 
 app.MapControllers();
 
+DbInitializer.InitDb(app);
 
 app.Run();
 
