@@ -1,25 +1,49 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import Catalog from "../../features/catalog/Catalog";
-import type { Product } from "../models/product";
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Container, createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import NavBar from "./NavBar";
+import { Outlet } from "react-router-dom";
 
 function App() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [darkMode, setDarkMode] = useState(false);
+  const palleteType = darkMode ? 'dark' : 'light'
 
-  useEffect(() => {
-    fetch("https://localhost:7055/api/products")
-      .then((response) => response.json())
-      .then((data) => setProducts(data));
-  }, []);
+
+
+  const theme = createTheme({
+    palette: {
+      mode: palleteType,
+      background: {
+        default: (palleteType === 'light') ? '#eaeaea' : '#121212'
+      }
+    }
+  });
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  }
+
+  
 
   return (
-    <>
-    <NavBar/>
-    <Container maxWidth={"xl"}>
-      <Catalog products={products}/>     
-    </Container>
-    </>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <NavBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+      <Box
+        sx={{
+          minHeight: '100vh',
+          background: darkMode 
+            ? 'radial-gradient(circle, #1e3aBa, #111B27)'
+            : 'radial-gradient(circle, #baecf9, #f0f9ff)',
+          py: 6
+        }}
+      >
+        <Container maxWidth='xl' sx={{ mt: 8 }}>
+          <Outlet />
+        </Container>
+      </Box>
+
+    </ThemeProvider>
     
   );
 }
