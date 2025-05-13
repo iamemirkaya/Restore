@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { useEffect, useState } from "react";
 import type { Product } from "../../app/models/product";
 import ProductList from "./ProductList";
 
@@ -7,7 +7,16 @@ type Props = {
   products: Product[];
 };
 
-export default function Catalog({ products }: Props) {
+export default function Catalog() {
+
+    const [products, setProducts] = useState<Product[]>([]);
+
+    useEffect(() => {
+        fetch("https://localhost:7055/api/products")
+          .then((response) => response.json())
+          .then((data) => setProducts(data));
+      }, []);
+
   return (
     <>
       <ProductList products={products}/>
