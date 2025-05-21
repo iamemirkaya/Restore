@@ -14,12 +14,10 @@ export const basketApi = createApi({
     baseQuery: baseQueryWithErrorHandling,
     tagTypes: ['Basket'],
     endpoints: (builder) => ({
-
         fetchBasket: builder.query<Basket, void>({
             query: () => 'basket',
             providesTags: ['Basket']
         }),
-
         addBasketItem: builder.mutation<Basket, { product: Product | Item, quantity: number }>({
             query: ({ product, quantity }) => {
                 const productId = isBasketItem(product) ? product.productId : product.id;
@@ -81,9 +79,7 @@ export const basketApi = createApi({
                 }
             }
         })
-        
     })
-        
 });
 
-export const { useFetchBasketQuery,useAddBasketItemMutation } = basketApi;
+export const { useFetchBasketQuery, useAddBasketItemMutation, useRemoveBasketItemMutation } = basketApi;
