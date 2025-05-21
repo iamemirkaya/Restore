@@ -2,7 +2,7 @@ import { Box, IconButton, Paper, Typography } from "@mui/material";
 import type { Item } from "../../app/models/Basket"
 import Grid2 from "@mui/material/Grid";
 import { Add, Close, Remove } from "@mui/icons-material";
-import { useAddBasketItemMutation } from "./basketApi";
+import { useAddBasketItemMutation, useRemoveBasketItemMutation } from "./basketApi";
 import { currencyFormat } from "../../lib/util";
 
 
@@ -91,8 +91,5 @@ export default function BasketItem({ item }: Props) {
             </IconButton>
         </Paper>
   )
-}
-function useRemoveBasketItemMutation(): [any] {
-    throw new Error("Function not implemented.");
 }
 
