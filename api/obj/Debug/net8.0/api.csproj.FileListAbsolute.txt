@@ -136,3 +136,9 @@ C:\Users\emir kaya\Desktop\Projeler\Restore\api\obj\Debug\net8.0\refint\api.dll
 C:\Users\emir kaya\Desktop\Projeler\Restore\api\obj\Debug\net8.0\api.pdb
 C:\Users\emir kaya\Desktop\Projeler\Restore\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 C:\Users\emir kaya\Desktop\Projeler\Restore\api\obj\Debug\net8.0\ref\api.dll
+C:\Users\emir kaya\Desktop\Projeler\Restore\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\emir kaya\Desktop\Projeler\Restore\api\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\emir kaya\Desktop\Projeler\Restore\api\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\emir kaya\Desktop\Projeler\Restore\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\emir kaya\Desktop\Projeler\Restore\api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\emir kaya\Desktop\Projeler\Restore\api\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
